@@ -1,2 +1,2 @@
 #!/bin/bash
-whoamihere
+id -un whoami
