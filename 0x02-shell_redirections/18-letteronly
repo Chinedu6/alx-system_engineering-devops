@@ -1,2 +1,2 @@
 #!/bin/bash
-grep 'LIVE edit'/etc/ssh/sshd_config
+grep 'L'/etc/ssh/sshd_config
