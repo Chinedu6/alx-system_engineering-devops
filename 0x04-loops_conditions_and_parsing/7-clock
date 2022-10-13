@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
-# script that displays time for 12 hours and 59 minutes
-hr=0
-while [ $hr -le 12 ]; do
-    echo "Hour:" $hr
-    min=1
-    while [ $min -le 59 ]; do
-	echo $min
-	let min=min+1
-    done
-    let hr=hr+1
+# Script that displays content of current directory in list format using for loop
+list="$(ls)"
+for i in $list; do
+    echo "$i" | cut -d'-' -f2
 done
