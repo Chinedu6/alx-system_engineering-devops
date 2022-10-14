@@ -1,32 +1,36 @@
-#!/usr/bin/env bash
-# Script to manage process and perform tasks
-file="/var/run/my_process.pid"
-func_start()
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+/**
+ * infinite_while - function to run infinite loop
+ * Return: 0
+ */
+int infinite_while(void)
 {
-	./manage_my_process &
-	echo "$!" > "$file"
+	while (1)
+	{
+		sleep(1);
+	}
+	return (0);
 }
 
-func_stop()
+/**
+ * main - program to fork 5 child processes
+ * Return: infinite_while
+ */
+int main(void)
 {
-	kill "$(cat $file)"
-	rm $file
+	pid_t zombie;
+	size_t n = 0;
+
+	for (; n < 5; n++)
+	{
+		zombie = fork();
+		if (zombie == 0)
+			exit(0);
+		else
+			printf("Zombie process created, PID: %d\n", zombie);
+	}
+	return (infinite_while());
 }
-case "$1" in
-     start)
-	func_start
-	echo "manage_my_process started"
-	;;
-     stop)
-	func_stop
-	echo "manage_my_process stopped"
-	;;
-     restart)
-	func_stop
-	func_start
-	echo "manage_my_process restarted"
-	;;
-     *)
-	echo "Usage: manage_my_process {start|stop|restart}"
-	;;
-esac
