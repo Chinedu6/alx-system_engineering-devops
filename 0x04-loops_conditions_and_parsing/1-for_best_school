@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Script to display "Holberton School" 10 times
-for _ in {1..10}; do
-    echo "Holberton School"
-done
+#Prints Best School to stdout 10 times with a while loop.
+i=10
+while ((i > 0)); do echo Best School; i=$((i-1)); done
