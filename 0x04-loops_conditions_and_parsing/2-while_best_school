@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-# Script to display "Holberton School" 10 times using while loop
-i=0
-while [ $i -lt 10 ]; do
-      echo "Holberton School"
-      let i=i+1
-done
+#Prints Best School to stdout 10 times with a while loop.
+i=10
+while ((i > 0)); do echo Best School; i=$((i-1)); done
