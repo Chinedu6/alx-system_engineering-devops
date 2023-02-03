@@ -1,4 +1,4 @@
-#Requirements:
+*Requirements:
 
 Issue Summary (that is often what executives will read) must contain:
 duration of the outage with start and end times (including timezone)
